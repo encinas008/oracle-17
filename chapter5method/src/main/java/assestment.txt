@@ -1,0 +1,71 @@
+Q/A
+1) A, B, E       0 => A, E
+2) B, C          1
+3) A, D          1
+4) A, B, C, E    1
+5) A, C, D       1
+6) A, B, F       1
+7) C             0 => D, F
+8) B, D          0 => D
+9) C, D, F       0 => B, C, D, F
+B, C, D, F. The two classes are in different packages, which means private access and
+package access will not compile. This causes compiler errors on lines 5, 6, and 7, making
+options B, C, and D correct answers. Additionally, protected access will not compile since
+School does not inherit from Classroom. This causes the compiler error on line 9, making
+option F a correct answer as well.
+
+10) E            0 => B
+B. Rope runs line 3, setting LENGTH to 5, and then immediately after that runs the
+static initializer, which sets it to 10. Line 5 in the Chimp class calls the static method
+normally and prints swing and a space. Line 6 also calls the static method. Java allows
+calling a static method through an instance variable, although it is not recommended.
+Line 7 uses the static import on line 2 to reference LENGTH. For these reasons, option B
+is correct.
+
+11) C, E         0 => B, E
+B, E. Line 10 does not compile because static methods are not allowed to call instance
+methods. Even though we are calling play() as if it were an instance method and an in-
+stance exists, Java knows play() is really a static method and treats it as such. Since
+this is the only line that does not compile, option B is correct. If line 10 is removed, the
+code prints swing-swing, making option E correct. It does not throw a
+NullPointerException on line 17 because play() is a static method. Java looks at
+the type of the reference for rope2 and translates the call to Rope.play().
+
+12) B            1
+13) E, F         0 => D
+D. There are two details to notice in this code. First, note that RopeSwing has an instance
+initializer and not a static initializer. Since RopeSwing is never constructed, the instance
+initializer does not run. The other detail is that length is static. Changes from any object
+update this common static variable. The code prints 8, making option D correct.
+
+14) E            1
+15) B            1
+16) F            0 => E
+E. The argument on line 17 is a short. It can be promoted to an int, so print() on line
+5 is invoked. The argument on line 18 is a boolean. It can be autoboxed to a Boolean,
+so print() on line 11 is invoked. The argument on line 19 is a double. It can be auto-
+boxed to a Double, so print() on line 11 is invoked. Therefore, the output is
+int-Object-Object-, and the correct answer is option E.
+
+17) C            0 => B
+B. Since Java is pass-by-value and the variable on line 8 never gets reassigned, it stays as 9.
+In the method square, x starts as 9. The y value becomes 81, and then x gets set to –1. Line
+9 does set result to 81. However, we are printing out value, and that is still 9, making
+option B correct.
+
+18) A, C, E      0 => B, D, E
+B, D, E. Since Java is pass-by-value, assigning a new object to a does not change the caller.
+Calling append() does affect the caller because both the method parameter and the caller
+have a reference to the same object. Finally, returning a value does pass the reference to the
+caller for assignment to s3. For these reasons, options B, D, and E are correct.
+
+19) C, E         0 => B, C, E
+B, C, E. The variable value1 is a final instance variable. It can be set only once: in the
+variable declaration, an instance initializer, or a constructor. Option A does not compile
+because the final variable was already set in the declaration. The variable value2 is a
+static variable. Both instance and static initializers are able to access static variables,
+making options B and E correct. The variable value3 is an instance variable. Options D and
+F do not compile because a static initializer does not have access to instance variables.
+
+20) A, E         1
+21) B, D         1
